@@ -1,4 +1,8 @@
-export default () => {
+type HangmanDrawingProps={
+  incorrectLetters:number
+}
+
+export default ({incorrectLetters}:HangmanDrawingProps) => {
   const HEAD = (
     <div
       style={{
@@ -81,14 +85,10 @@ export default () => {
       }}
     ></div>
   );
+  const BODY_PARTS=[HEAD,BODY,LEFT_ARM,RIGHT_ARM,LEFT_LEG,RIGHT_LEG]
   return (
     <div style={{ position: "relative" }}>
-      {HEAD}
-      {BODY}
-      {LEFT_ARM}
-      {RIGHT_ARM}
-      {LEFT_LEG}
-      {RIGHT_LEG}
+      {BODY_PARTS.slice(0,incorrectLetters)}
       <div
         style={{
           height: "40px",
